@@ -19,15 +19,13 @@ import {
 	Truck,
 } from 'lucide-react';
 import { LastCustomers } from './components/LastCustomers';
-import { CustomersTable, CustomerTable } from './components/CustomersTable';
 import { SalesDistributors } from './components/SalesDistributors';
-import { TotalSuscribers } from './components/Partformat';
 import { ListIntegrations } from './components/ListIntegrations';
 import { Average } from 'next/font/google';
 import { Sellout } from './components/Sellout';
 import { Partformat } from './components/Partformat/Partformat';
 
-export const dataCardSummary = [
+const dataCardSummary = [
 	{
 		icon: ChartNoAxesCombined,
 		total: '2,919,058 pzas',
@@ -36,7 +34,6 @@ export const dataCardSummary = [
 		title: 'Total Sell In',
 		tooltipText: 'Sell In en piezas a marzo 2025',
 	},
-
 	{
 		icon: CircleDollarSign,
 		total: '$18,880,557 mxn',
@@ -99,40 +96,34 @@ export default function Home() {
 	return (
 		<div>
 			<h2 className="text-2xl mb-4">Acumulado 2025</h2>
-			<div className="grid grid-colds-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-x-20">
+			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-x-20">
 				{dataCardSummary.map(
 					({
 						icon,
-						añoActual,
 						añoAnterior,
-						promedio,
 						total,
 						average,
 						title,
 						tooltipText,
 						ddiExistencia,
-						ddiDisponible,
 					}) => (
 						<CardSummary
 							key={title}
 							icon={icon}
 							total={total}
-							promedio={promedio}
 							average={average}
 							title={title}
 							tooltipText={tooltipText}
-							añoActual={añoActual}
 							añoAnterior={añoAnterior}
-							ddiDisponible={ddiDisponible}
 							ddiExistencia={ddiExistencia}
 						/>
 					),
 				)}
 			</div>
-			<div className=" grid md:gap-x-10 mt-12">
+			<div className="grid md:gap-x-10 mt-12">
 				<SalesDistributors />
 			</div>
-			<div className=" grid md:gap-x-10 mt-12">
+			<div className="grid md:gap-x-10 mt-12">
 				<Sellout />
 			</div>
 			<div className="flex-col md:gap-x-10 xl:flex xl:flex-row gap-y-4 md:gap-y-0 mt-12 md:mb-10 justify-center">

@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { ChevronUp, DotsHorizontalIcon } from 'lucide-react';
+import { ChevronUp, MoreHorizontalIcon } from 'lucide-react';
 import { TableIntegrationProps } from './TableIntegrations.types';
 
 import {
@@ -133,8 +133,14 @@ export const columns: ColumnDef<TableIntegrationProps>[] = [
 		),
 		enableSorting: true,
 		sortingFn: (a, b) => {
-			const valueA = parseInt(a.getValue('ventaPzas').replace(/,/g, ''), 10);
-			const valueB = parseInt(b.getValue('ventaPzas').replace(/,/g, ''), 10);
+			const valueA = parseInt(
+				(a.getValue('ventaPzas') as string).replace(/,/g, ''),
+				10,
+			);
+			const valueB = parseInt(
+				(b.getValue('ventaPzas') as string).replace(/,/g, ''),
+				10,
+			);
 			return valueA - valueB;
 		},
 	},
@@ -156,14 +162,12 @@ export const columns: ColumnDef<TableIntegrationProps>[] = [
 		enableSorting: true,
 		sortingFn: (a, b) => {
 			const valueA = parseFloat(
-				a
-					.getValue('ventaMxn')
+				(a.getValue('ventaMxn') as string)
 					.replace(/[^\d.]/g, '')
 					.replace(/,/g, ''),
 			);
 			const valueB = parseFloat(
-				b
-					.getValue('ventaMxn')
+				(b.getValue('ventaMxn') as string)
 					.replace(/[^\d.]/g, '')
 					.replace(/,/g, ''),
 			);
