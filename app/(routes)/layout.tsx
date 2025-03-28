@@ -3,7 +3,7 @@ import Sidebar from '@/components/Sidebar';
 
 export const metadata = {
 	icons: {
-		icon: '/IconBFresa.jpeg', // Ruta desde la carpeta public
+		icon: '/icon.png', // Ruta desde la carpeta public
 	},
 };
 
