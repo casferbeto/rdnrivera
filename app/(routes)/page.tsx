@@ -100,11 +100,11 @@ export default function Home() {
 				{dataCardSummary.map(
 					({
 						icon,
-						añoAnterior,
 						total,
 						average,
 						title,
 						tooltipText,
+						añoAnterior,
 						ddiExistencia,
 					}) => (
 						<CardSummary
@@ -116,6 +116,10 @@ export default function Home() {
 							tooltipText={tooltipText}
 							añoAnterior={añoAnterior}
 							ddiExistencia={ddiExistencia}
+							// Agregar valores por defecto para props requeridas
+							promedio={average} // Si promedio es igual a average
+							añoActual="2025" // Valor estático o dinámico según necesidad
+							ddiDisponible={ddiExistencia ? '34' : undefined} // Ejemplo condicional
 						/>
 					),
 				)}

@@ -2,11 +2,7 @@
 
 import { SidebarItem } from '../SidebarItem';
 import { Separator } from '@/components/ui/separator';
-import {
-	dataGeneralSidebar,
-	dataSupportSidebar,
-	dataToolsSidebar,
-} from './SidebarRoutes.data';
+import { dataGeneralSidebar } from './SidebarRoutes.data';
 import { Button } from '@/components/ui/button';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
@@ -26,8 +22,9 @@ export function SidebarRoutes() {
 
 			// 3. Optimizar elementos para impresión
 			document.querySelectorAll('canvas, table').forEach((el) => {
-				el.style.boxShadow = 'none';
-				el.classList.add('print-margin');
+				const element = el as HTMLElement;
+				element.style.boxShadow = 'none';
+				element.classList.add('print-margin');
 			});
 
 			// 4. Capturar contenido completo
@@ -52,7 +49,7 @@ export function SidebarRoutes() {
 			const pageHeight = pdf.internal.pageSize.getHeight();
 
 			// 7. Calcular dimensiones
-			const imgWidth = pageWidth - 10; // Margen horizontal
+			const imgWidth = pageWidth - 10;
 			const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
 			// 8. Dividir en páginas
@@ -63,19 +60,19 @@ export function SidebarRoutes() {
 				pdf.addImage(
 					canvas,
 					'PNG',
-					5, // Margen izquierdo
-					position + 5, // Margen superior
+					5,
+					position + 5,
 					imgWidth,
 					imgHeight,
 					undefined,
 					'FAST',
 				);
 
-				remainingHeight -= pageHeight - 10; // Considerar márgenes
+				remainingHeight -= pageHeight - 10;
 				position -= pageHeight - 10;
 
 				if (remainingHeight > 0) {
-					pdf.addPage('p', 'a4');
+					pdf.addPage('p', 'portrait');
 				}
 			}
 
@@ -87,8 +84,9 @@ export function SidebarRoutes() {
 		} finally {
 			// 10. Limpiar estilos temporales
 			document.querySelectorAll('canvas, table').forEach((el) => {
-				el.style.boxShadow = '';
-				el.classList.remove('print-margin');
+				const element = el as HTMLElement;
+				element.style.boxShadow = '';
+				element.classList.remove('print-margin');
 			});
 		}
 	};
