@@ -17,7 +17,7 @@ export default function LayoutDashboard({
 			<div className="hidden xl:block w-80 h-full xl:fixed">
 				<Sidebar />
 			</div>
-			<div className="w-full xl:ml-80">
+			<div className="w-full xl:ml-[235px]">
 				<Navbar />
 				<div className="p-6 bg-[#fafbfc] dark:bg-secondary">{children}</div>
 			</div>

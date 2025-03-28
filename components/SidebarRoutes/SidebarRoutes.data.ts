@@ -30,4 +30,9 @@ export const dataGeneralSidebar = [
 		label: 'Marzo 2025',
 		href: '/marzo',
 	},
+	{
+		icon: PanelsTopLeft,
+		label: 'Abril 2025',
+		href: '/abril',
+	},
 ];
