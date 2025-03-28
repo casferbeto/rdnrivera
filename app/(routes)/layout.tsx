@@ -1,6 +1,12 @@
 import { Navbar } from '@/components/Navbar';
 import Sidebar from '@/components/Sidebar';
 
+export const metadata = {
+	icons: {
+		icon: '/IconBFresa.jpeg', // Ruta desde la carpeta public
+	},
+};
+
 export default function LayoutDashboard({
 	children,
 }: {
