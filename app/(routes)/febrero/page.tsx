@@ -24,12 +24,13 @@ import { ListIntegrations } from '../components/ListIntegrations';
 import { Average } from 'next/font/google';
 import { Sellout } from '../components/Sellout';
 import { Partformat } from '../components/Partformat/Partformat';
-import { SalesRadialChartAcumulado } from '../components/SalesRadialChart/SalesRadialChartAcumulado';
+
 import { BarChartSellInFebrero } from '../components/BarChartSellin/BarChartSellInFebrero';
 import { BarChartSellOutFebrero } from '../components/BarChartSellOut/BarChartSellOutFebrero';
 import { SalesRadialChartFebrero } from '../components/SalesRadialChart/SalesRadialChartFebrero';
 import { SalesRadialChartFebreroProyectado } from '../components/SalesRadialChart/SalesRadialChartFebreroProyectado';
 import { VentasPorFormatoChartFebrero } from '../components/VentasPorFormatoChart/VentasPorFormatoChartFebrero';
+import { SalesRadialChartAcumuladoFebrero } from '../components/SalesRadialChart/SalesRadialChartAcumuladoFebrero';
 
 const dataCardSummary = [
 	{
@@ -142,7 +143,7 @@ export default function Home() {
 			<div className="flex flex-col xl:flex-row flex-wrap gap-4 md:gap-5 mt-20 md:mb-10 w-full">
 				<SalesRadialChartFebrero />
 				<SalesRadialChartFebreroProyectado />
-				<SalesRadialChartAcumulado />
+				<SalesRadialChartAcumuladoFebrero />
 				<Partformat />
 			</div>
 
