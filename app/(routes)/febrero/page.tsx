@@ -24,69 +24,69 @@ import { ListIntegrations } from '../components/ListIntegrations';
 import { Average } from 'next/font/google';
 import { Sellout } from '../components/Sellout';
 import { Partformat } from '../components/Partformat/Partformat';
-import { VentasPorFormatoChartEnero } from '../components/VentasPorFormatoChart/VentasPorFormatoChartEnero';
-import { SalesRadialChartEnero } from '../components/SalesRadialChart/SalesRadialChartEnero';
-import { SalesRadialChartEneroProyectado } from '../components/SalesRadialChart/SalesRadialChartEneroProyectado';
 import { SalesRadialChartAcumulado } from '../components/SalesRadialChart/SalesRadialChartAcumulado';
-import { BarChartSellIn } from '../components/BarChartSellin/BarChartSellIn';
-import { BarChartSellOut } from '../components/BarChartSellOut/BarChartSellOut';
+import { BarChartSellInFebrero } from '../components/BarChartSellin/BarChartSellInFebrero';
+import { BarChartSellOutFebrero } from '../components/BarChartSellOut/BarChartSellOutFebrero';
+import { SalesRadialChartFebrero } from '../components/SalesRadialChart/SalesRadialChartFebrero';
+import { SalesRadialChartFebreroProyectado } from '../components/SalesRadialChart/SalesRadialChartFebreroProyectado';
+import { VentasPorFormatoChartFebrero } from '../components/VentasPorFormatoChart/VentasPorFormatoChartFebrero';
 
 const dataCardSummary = [
 	{
 		icon: ChartNoAxesCombined,
-		total: '2,919,058 pzas',
-		añoAnterior: '3,549,930 pzas',
-		average: -18,
+		total: '893,188 pzas',
+		añoAnterior: '1,230,756 pzas',
+		average: -27,
 		title: 'Total Sell In',
-		tooltipText: 'Sell In en piezas a marzo 2025',
+		tooltipText: 'Sell In en piezas 2025',
 	},
 	{
 		icon: CircleDollarSign,
-		total: '$18,880,557 mxn',
-		añoAnterior: '$23,115,115 mxn',
-		average: -18,
-		title: 'Total Sell In',
+		total: '$15,086,442.00 mxn',
+		añoAnterior: '$23,115,115.00 mxn',
+		average: -35,
+		title: 'Total Sell In Valor',
 		tooltipText: 'Sell In en valor',
 	},
 	{
 		icon: ShoppingCart,
-		total: '3,017,532 pzas',
-		añoAnterior: '3,601,382.00 pzas',
-		average: -16,
+		total: '1,394,745',
+		añoAnterior: '1,191,553 pzas',
+		average: 17,
 		title: 'Total Sell Out',
-		tooltipText: 'Sell Out en piezas a marzo 2025',
+		tooltipText: 'Sell Out en piezas 2025',
 	},
 	{
 		icon: CircleDollarSign,
-		total: '$58,361,607.01 mxn',
-		añoAnterior: '$52,959,125.44 mxn',
-		average: -9,
-		title: 'Total Sell Out',
+		total: '$24,160,665.00 mxn',
+		añoAnterior: '$19,230,311.28 mxn',
+		average: 26,
+		title: 'Total Sell Out en Valor',
 		tooltipText: 'Sell Out en Valor',
 	},
 	{
 		icon: Landmark,
-		total: '8.80%',
-		añoAnterior: '7.82%',
-		average: 12.5,
-		title: 'Margen',
-		tooltipText: 'Margen a total negocio',
+		total: '11.94%',
+		añoAnterior: '16.63%',
+		average: -28,
+		title: 'Utilidad Promedio',
+		tooltipText: 'Utilidad promedio de todos los formatos',
 	},
 	{
 		icon: PackageOpen,
-		total: '24 Disponibles',
-		añoAnterior: '34',
-		average: 30,
-		ddiExistencia: '34 DDI Existencia',
+		total: '25 Existencia',
+		añoAnterior: '0',
+		average: 0,
+		ddiExistencia: '25 DDI Existencia',
 		title: 'DDI',
-		tooltipText: '36 DDI Existencia  ',
+		tooltipText: '25 DDI Existencia al cierre del mes  ',
 	},
 	{
 		icon: Truck,
-		total: '294,643 cajas',
-		average: 81.81,
+		total: '149,220 cajas ordenadas',
+		average: 91,
 		title: 'Fill Rate',
-		tooltipText: 'Surtido 241,043 cajas en marzo',
+		tooltipText: 'Surtido 135,333 cajas en el mes',
 	},
 	{
 		icon: UsersRound,
@@ -132,27 +132,26 @@ export default function Home() {
 			</div>
 			<div className="grid grid-cols-1 xl:grid-cols-2 gap-4 xl:gap-10 mt-12 md:mb-10">
 				<div className="w-full h-full">
-					<BarChartSellIn />
+					<BarChartSellInFebrero />
 				</div>
 				<div className="w-full h-full">
-					<BarChartSellOut />
+					<BarChartSellOutFebrero />
 				</div>
 			</div>
 
-			<div className="flex flex-col xl:flex-row flex-wrap gap-4 md:gap-5 mt-12 md:mb-10 w-full">
-				<SalesRadialChartEnero />
-				<SalesRadialChartEneroProyectado />
+			<div className="flex flex-col xl:flex-row flex-wrap gap-4 md:gap-5 mt-20 md:mb-10 w-full">
+				<SalesRadialChartFebrero />
+				<SalesRadialChartFebreroProyectado />
 				<SalesRadialChartAcumulado />
+				<Partformat />
 			</div>
 
 			<div className="grid md:gap-x-10 mt-12">
-				<div className="w-full h-full">
-					<Partformat />
-				</div>
+				<div className="w-full h-full"></div>
 			</div>
 
 			<div className="grid md:gap-x-10 mt-12">
-				<VentasPorFormatoChartEnero />
+				<VentasPorFormatoChartFebrero />
 			</div>
 		</div>
 	);
