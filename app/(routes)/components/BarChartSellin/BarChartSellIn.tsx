@@ -9,8 +9,17 @@ import {
 	YAxis,
 	ResponsiveContainer,
 	Tooltip,
+	LabelList,
+	Cell,
 } from 'recharts';
-import { dataBarChartSellInEnero } from './BarChartSellInEnero.data';
+
+// Datos corregidos con estructura consistente
+const data = [
+	{ periodo: 'Enero 2024', ventaPzas: 386180 },
+	{ periodo: 'Enero 2025', ventaPzas: 200006 },
+];
+
+const COLORS = ['#16c8c7', '#887cfd'];
 
 export function BarChartSellIn() {
 	return (
@@ -18,14 +27,12 @@ export function BarChartSellIn() {
 			{/* Encabezado */}
 			<div className="flex gap-x-5 mb-5">
 				<div className="flex items-center gap-2">
-					<div className="text-lg font-semibold">Sell Out</div>
-					<div className="text-sm text-muted-foreground">
-						Enero 2024 vs Enero 2025
-					</div>
+					<div className="text-lg font-semibold">Sell In Enero</div>
+					<div className="text-sm text-muted-foreground">Enero 2025 vs AAN</div>
 				</div>
 
 				<div className="flex items-center gap-2 px-3 text-md bg-blue-500 text-white rounded-xl w-fit">
-					+5.2%
+					+15.8%
 					<TrendingUp strokeWidth={1} className="h-4 w-4" />
 				</div>
 			</div>
@@ -34,42 +41,74 @@ export function BarChartSellIn() {
 			<div className="h-[350px]">
 				<ResponsiveContainer width="100%" height="100%">
 					<BarChart
-						data={dataBarChartSellInEnero}
-						margin={{ top: 10, right: 30, left: 20, bottom: 0 }}
+						data={data}
+						margin={{ top: 30, right: 30, left: 20, bottom: 0 }}
 					>
 						<CartesianGrid vertical={false} strokeDasharray="3 3" />
-						<XAxis
-							dataKey="month"
-							tickLine={false}
-							axisLine={false}
-							tickFormatter={(value) => value.slice(0, 3)}
-						/>
+						<XAxis dataKey="periodo" tickLine={false} axisLine={false} />
 						<YAxis
 							tickLine={false}
 							axisLine={false}
-							tickFormatter={(value) => `${value}`}
+							tickFormatter={(value) => new Intl.NumberFormat().format(value)}
 						/>
 						<Tooltip
-							contentStyle={{
-								background: '#fff',
-								border: 'none',
-								borderRadius: '8px',
-								boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+							content={({ active, payload }) => {
+								if (active && payload && payload.length) {
+									return (
+										<div className="bg-white p-3 rounded-lg shadow-xl border">
+											<p className="font-medium">
+												{payload[0].payload.periodo}
+											</p>
+											<p className="text-sm">
+												{new Intl.NumberFormat().format(
+													(payload[0].value as number) ?? 0,
+												)}{' '}
+												piezas
+											</p>
+										</div>
+									);
+								}
+								return null;
 							}}
 						/>
-						<Bar
-							dataKey="piezas"
-							fill="#16c8c7"
-							radius={[4, 4, 0, 0]}
-							barSize={430}
-						/>
+						<Bar dataKey="ventaPzas" radius={[4, 4, 0, 0]} barSize={350}>
+							{data.map((entry, index) => (
+								<Cell
+									key={`cell-${index}`}
+									fill={COLORS[index % COLORS.length]}
+								/>
+							))}
+							<LabelList
+								dataKey="ventaPzas"
+								position="top"
+								formatter={(value: number) =>
+									new Intl.NumberFormat().format(value)
+								}
+								fill="#374151"
+								fontSize={12}
+								offset={10}
+							/>
+						</Bar>
 					</BarChart>
 				</ResponsiveContainer>
 			</div>
 
+			{/* Leyenda de colores */}
+			<div className="mt-4 flex flex-wrap gap-3 text-sm">
+				{data.map((item, index) => (
+					<div key={item.periodo} className="flex items-center gap-2">
+						<div
+							className="w-3 h-3 rounded-sm"
+							style={{ backgroundColor: COLORS[index] }}
+						/>
+						<span className="text-muted-foreground">{item.periodo}</span>
+					</div>
+				))}
+			</div>
+
 			{/* Pie */}
 			<div className="mt-4 text-sm text-muted-foreground">
-				Comparativa Enero 2025 vs ANN
+				Comparativa mensual vs AAN
 			</div>
 		</div>
 	);
