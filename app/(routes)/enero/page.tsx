@@ -29,6 +29,8 @@ import { BarChartSellIn } from '../components/BarChartSellin';
 
 import { VentasPorFormatoChartEnero } from '../components/VentasPorFormatoChart/VentasPorFormatoChartEnero';
 import { SalesRadialChartEnero } from '../components/SalesRadialChart/SalesRadialChartEnero';
+import { SalesRadialChartEneroProyectado } from '../components/SalesRadialChart/SalesRadialChartEneroProyectado';
+import { SalesRadialChartAcumulado } from '../components/SalesRadialChart/SalesRadialChartAcumulado';
 
 const dataCardSummary = [
 	{
@@ -141,6 +143,8 @@ export default function Home() {
 			<div className="flex-col md:gap-x-10 xl:flex xl:flex-row gap-y-4 md:gap-y-0 mt-12 md:mb-10 justify-center">
 				<Partformat />
 				<SalesRadialChartEnero />
+				<SalesRadialChartEneroProyectado />
+				<SalesRadialChartAcumulado />
 			</div>
 			<div className="grid md:gap-x-10 mt-12">
 				<VentasPorFormatoChartEnero />
