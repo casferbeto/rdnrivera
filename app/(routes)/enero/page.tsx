@@ -27,6 +27,9 @@ import { Partformat } from '../components/Partformat/Partformat';
 import { BarChartPiezas } from '../components/BarChartPiezas';
 import { BarChartSellIn } from '../components/BarChartSellin';
 
+import { VentasPorFormatoChartEnero } from '../components/VentasPorFormatoChart/VentasPorFormatoChartEnero';
+import { SalesRadialChartEnero } from '../components/SalesRadialChart/SalesRadialChartEnero';
+
 const dataCardSummary = [
 	{
 		icon: ChartNoAxesCombined,
@@ -41,7 +44,7 @@ const dataCardSummary = [
 		total: '$18,880,557 mxn',
 		añoAnterior: '$23,115,115 mxn',
 		average: -18,
-		title: 'Total Sell Out',
+		title: 'Total Sell In',
 		tooltipText: 'Sell In en valor',
 	},
 	{
@@ -126,16 +129,21 @@ export default function Home() {
 					),
 				)}
 			</div>
-			<div className="grid md:gap-x-10 mt-12">
-				<BarChartSellIn />
+			<div className="grid grid-cols-1 xl:grid-cols-2 gap-4 xl:gap-10 mt-12 md:mb-10">
+				<div className="w-full h-full">
+					<BarChartSellIn />
+				</div>
+				<div className="w-full h-full">
+					<BarChartPiezas />
+				</div>
 			</div>
 
-			<div className="grid md:gap-x-10 mt-12">
-				<BarChartPiezas />
-			</div>
 			<div className="flex-col md:gap-x-10 xl:flex xl:flex-row gap-y-4 md:gap-y-0 mt-12 md:mb-10 justify-center">
 				<Partformat />
-				<ListIntegrations />
+				<SalesRadialChartEnero />
+			</div>
+			<div className="grid md:gap-x-10 mt-12">
+				<VentasPorFormatoChartEnero />
 			</div>
 		</div>
 	);

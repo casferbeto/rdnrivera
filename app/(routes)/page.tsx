@@ -39,7 +39,7 @@ const dataCardSummary = [
 		total: '$18,880,557 mxn',
 		añoAnterior: '$23,115,115 mxn',
 		average: -18,
-		title: 'Total Sell Out',
+		title: 'Total Sell In',
 		tooltipText: 'Sell In en valor',
 	},
 	{
