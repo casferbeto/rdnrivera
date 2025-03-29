@@ -24,13 +24,12 @@ import { ListIntegrations } from '../components/ListIntegrations';
 import { Average } from 'next/font/google';
 import { Sellout } from '../components/Sellout';
 import { Partformat } from '../components/Partformat/Partformat';
-import { BarChartPiezas } from '../components/BarChartPiezas';
-
 import { VentasPorFormatoChartEnero } from '../components/VentasPorFormatoChart/VentasPorFormatoChartEnero';
 import { SalesRadialChartEnero } from '../components/SalesRadialChart/SalesRadialChartEnero';
 import { SalesRadialChartEneroProyectado } from '../components/SalesRadialChart/SalesRadialChartEneroProyectado';
 import { SalesRadialChartAcumulado } from '../components/SalesRadialChart/SalesRadialChartAcumulado';
 import { BarChartSellIn } from '../components/BarChartSellin/BarChartSellIn';
+import { BarChartSellOut } from '../components/BarChartSellOut/BarChartSellOut';
 
 const dataCardSummary = [
 	{
@@ -136,7 +135,7 @@ export default function Home() {
 					<BarChartSellIn />
 				</div>
 				<div className="w-full h-full">
-					<BarChartPiezas />
+					<BarChartSellOut />
 				</div>
 			</div>
 
