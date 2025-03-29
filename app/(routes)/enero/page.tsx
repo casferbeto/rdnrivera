@@ -34,59 +34,59 @@ import { BarChartSellOut } from '../components/BarChartSellOut/BarChartSellOut';
 const dataCardSummary = [
 	{
 		icon: ChartNoAxesCombined,
-		total: '2,919,058 pzas',
-		añoAnterior: '3,549,930 pzas',
-		average: -18,
+		total: '945,918 pzas',
+		añoAnterior: '770,142 pzas',
+		average: 23,
 		title: 'Total Sell In',
-		tooltipText: 'Sell In en piezas a marzo 2025',
+		tooltipText: 'Sell In en piezas 2025',
 	},
 	{
 		icon: CircleDollarSign,
-		total: '$18,880,557 mxn',
-		añoAnterior: '$23,115,115 mxn',
-		average: -18,
-		title: 'Total Sell In',
+		total: '$15,023,293.00 mxn',
+		añoAnterior: '$11,499,722.00 mxn',
+		average: 31,
+		title: 'Total Sell In Valor',
 		tooltipText: 'Sell In en valor',
 	},
 	{
 		icon: ShoppingCart,
-		total: '3,017,532 pzas',
-		añoAnterior: '3,601,382.00 pzas',
-		average: -16,
+		total: '875,018 pzas',
+		añoAnterior: '977,977 pzas',
+		average: -11,
 		title: 'Total Sell Out',
-		tooltipText: 'Sell Out en piezas a marzo 2025',
+		tooltipText: 'Sell Out en piezas 2025',
 	},
 	{
 		icon: CircleDollarSign,
-		total: '$58,361,607.01 mxn',
-		añoAnterior: '$52,959,125.44 mxn',
-		average: -9,
-		title: 'Total Sell Out',
+		total: '$15,122,379.17 mxn',
+		añoAnterior: '$15,670,106.61 mxn',
+		average: -3,
+		title: 'Total Sell Out en Valor',
 		tooltipText: 'Sell Out en Valor',
 	},
 	{
 		icon: Landmark,
-		total: '8.80%',
-		añoAnterior: '7.82%',
-		average: 12.5,
-		title: 'Margen',
-		tooltipText: 'Margen a total negocio',
+		total: '18.83%',
+		añoAnterior: '15.84%',
+		average: 19,
+		title: 'Utilidad Promedio',
+		tooltipText: 'Utilidad promedio de todos los formatos',
 	},
 	{
 		icon: PackageOpen,
-		total: '24 Disponibles',
-		añoAnterior: '34',
-		average: 30,
-		ddiExistencia: '34 DDI Existencia',
+		total: '38 Existencia',
+		añoAnterior: '0',
+		average: 0,
+		ddiExistencia: '38 DDI Existencia',
 		title: 'DDI',
-		tooltipText: '36 DDI Existencia  ',
+		tooltipText: '38 DDI Existencia al cierre del mes  ',
 	},
 	{
 		icon: Truck,
-		total: '294,643 cajas',
-		average: 81.81,
+		total: '83,674 cajas ordenadas',
+		average: 93,
 		title: 'Fill Rate',
-		tooltipText: 'Surtido 241,043 cajas en marzo',
+		tooltipText: 'Surtido 77,807 cajas en el mes',
 	},
 	{
 		icon: UsersRound,
@@ -139,16 +139,15 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className="flex flex-col xl:flex-row flex-wrap gap-4 md:gap-5 mt-12 md:mb-10 w-full">
+			<div className="flex flex-col xl:flex-row flex-wrap gap-4 md:gap-5 mt-20 md:mb-10 w-full">
 				<SalesRadialChartEnero />
 				<SalesRadialChartEneroProyectado />
 				<SalesRadialChartAcumulado />
+				<Partformat />
 			</div>
 
 			<div className="grid md:gap-x-10 mt-12">
-				<div className="w-full h-full">
-					<Partformat />
-				</div>
+				<div className="w-full h-full"></div>
 			</div>
 
 			<div className="grid md:gap-x-10 mt-12">

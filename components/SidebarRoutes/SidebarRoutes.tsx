@@ -115,7 +115,7 @@ export function SidebarRoutes() {
 
 				<Separator className="bg-gray-200" />
 				<footer className="mt-3 p-3 text-center text-sm text-gray-500 print:hidden">
-					© 2025 Todos los derechos reservados
+					© 2025 Todos los derechos reservados Alberto Castillo
 				</footer>
 			</div>
 		</div>

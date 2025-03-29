@@ -14,12 +14,12 @@ import {
 import { useState } from 'react';
 
 const initialData = [
-	{ formato: 'Club', ventaPzas: 386180 },
-	{ formato: 'Express', ventaPzas: 20006 },
-	{ formato: 'Frescura', ventaPzas: 10981 },
-	{ formato: 'GBS', ventaPzas: 140973 },
-	{ formato: 'Mostrador', ventaPzas: 806473 },
-	{ formato: 'Reparto', ventaPzas: 1652919 },
+	{ formato: 'Club', ventaPzas: 141790 },
+	{ formato: 'Express', ventaPzas: 5081 },
+	{ formato: 'Frescura', ventaPzas: 3017 },
+	{ formato: 'GBS', ventaPzas: 38214 },
+	{ formato: 'Mostrador', ventaPzas: 204504 },
+	{ formato: 'Reparto', ventaPzas: 482412 },
 ];
 
 export function VentasPorFormatoChartEnero() {

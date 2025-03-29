@@ -15,8 +15,8 @@ import {
 
 // Datos corregidos con estructura consistente
 const data = [
-	{ periodo: 'Enero 2024', ventaPzas: 386180 },
-	{ periodo: 'Enero 2025', ventaPzas: 200006 },
+	{ periodo: 'Enero 2024', ventaPzas: 770142 },
+	{ periodo: 'Enero 2025', ventaPzas: 945918 },
 ];
 
 const COLORS = ['#16c8c7', '#887cfd'];
@@ -27,12 +27,12 @@ export function BarChartSellIn() {
 			{/* Encabezado */}
 			<div className="flex gap-x-5 mb-5">
 				<div className="flex items-center gap-2">
-					<div className="text-lg font-semibold">Sell In Enero</div>
-					<div className="text-sm text-muted-foreground">Enero 2025 vs AAN</div>
+					<div className="text-lg font-semibold">Sell In 2025 vs AAN</div>
+					<div className="text-sm text-muted-foreground"> </div>
 				</div>
 
 				<div className="flex items-center gap-2 px-3 text-md bg-blue-500 text-white rounded-xl w-fit">
-					+15.8%
+					+23%
 					<TrendingUp strokeWidth={1} className="h-4 w-4" />
 				</div>
 			</div>
@@ -45,12 +45,7 @@ export function BarChartSellIn() {
 						margin={{ top: 30, right: 30, left: 20, bottom: 0 }}
 					>
 						<CartesianGrid vertical={false} strokeDasharray="3 3" />
-						<XAxis dataKey="periodo" tickLine={false} axisLine={false} />
-						<YAxis
-							tickLine={false}
-							axisLine={false}
-							tickFormatter={(value) => new Intl.NumberFormat().format(value)}
-						/>
+
 						<Tooltip
 							content={({ active, payload }) => {
 								if (active && payload && payload.length) {

@@ -11,7 +11,7 @@ export const dataPartformat = [
 	},
 	{
 		name: 'Mostrador',
-		value: 27,
+		value: 26,
 		fill: '#ffbb28',
 	},
 ];

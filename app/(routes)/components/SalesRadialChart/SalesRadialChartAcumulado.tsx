@@ -7,13 +7,13 @@ import { useEffect, useState } from 'react';
 // Datos sin 'as const' para evitar conflictos de mutabilidad
 const salesDataEnero = [
 	{
-		month: '',
-		goal: 3396610,
-		billed: 2561474,
-		billedWithAppointment: 3000000,
-		formattedGoal: ' 3,396,610 pzas',
-		formattedBilled: ' 2,561,474 pzas',
-		formattedBilledWithAppointment: '2,561,474 pzas',
+		month: 'Enero',
+		goal: 980552,
+		billed: 747330,
+		billedWithAppointment: 0,
+		formattedGoal: ' 980,552 pzas',
+		formattedBilled: '747,330 pzas',
+		formattedBilledWithAppointment: '1,615,536 pzas',
 	},
 ];
 

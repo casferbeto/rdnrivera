@@ -8,11 +8,11 @@ import { useEffect, useState } from 'react';
 const salesDataEnero = [
 	{
 		month: 'Enero',
-		goal: 1574608,
-		billed: 1190112,
+		goal: 980552,
+		billed: 747330,
 		billedWithAppointment: 0,
-		formattedGoal: '1,574,608 pzas',
-		formattedBilled: '1,190,112 pzas',
+		formattedGoal: ' 980,552 pzas',
+		formattedBilled: '747,330 pzas',
 		formattedBilledWithAppointment: '1,615,536 pzas',
 	},
 ];
@@ -72,7 +72,7 @@ export function SalesRadialChartEnero() {
 		<div className="flex flex-col h-full p-6 bg-white rounded-lg border shadow-sm">
 			{/* Encabezado */}
 			<div className="pb-2">
-				<h3 className="text-lg font-semibold">Progreso de Ventas - Enero</h3>
+				<h3 className="text-lg font-semibold">Progreso de Facturación</h3>
 				<p className="text-sm text-muted-foreground">
 					{isGoalExceeded ? 'Meta vs Facturado + Cita' : 'Meta vs Facturado'}
 				</p>
