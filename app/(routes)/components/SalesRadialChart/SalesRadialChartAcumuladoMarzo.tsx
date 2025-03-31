@@ -17,7 +17,7 @@ const salesDataEnero = [
 	},
 ];
 
-export function SalesRadialChartAcumuladoFebrero() {
+export function SalesRadialChartAcumuladoMarzo() {
 	const [isMounted, setIsMounted] = useState(false);
 	const {
 		goal,

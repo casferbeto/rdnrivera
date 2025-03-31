@@ -24,13 +24,12 @@ import { ListIntegrations } from '../components/ListIntegrations';
 import { Average } from 'next/font/google';
 import { Sellout } from '../components/Sellout';
 import { Partformat } from '../components/Partformat/Partformat';
-
-import { BarChartSellInFebrero } from '../components/BarChartSellin/BarChartSellInFebrero';
-import { BarChartSellOutFebrero } from '../components/BarChartSellOut/BarChartSellOutFebrero';
-import { SalesRadialChartFebrero } from '../components/SalesRadialChart/SalesRadialChartFebrero';
-import { SalesRadialChartFebreroProyectado } from '../components/SalesRadialChart/SalesRadialChartFebreroProyectado';
-import { VentasPorFormatoChartFebrero } from '../components/VentasPorFormatoChart/VentasPorFormatoChartFebrero';
-import { SalesRadialChartAcumuladoFebrero } from '../components/SalesRadialChart/SalesRadialChartAcumuladoFebrero';
+import { VentasPorFormatoChartMarzo } from '../components/VentasPorFormatoChart/VentasPorFormatoChartMarzo';
+import { SalesRadialChartMarzo } from '../components/SalesRadialChart/SalesRadialChartMarzo';
+import { SalesRadialChartMarzoProyectado } from '../components/SalesRadialChart/SalesRadialChartMarzoProyectado';
+import { SalesRadialChartAcumuladoMarzo } from '../components/SalesRadialChart/SalesRadialChartAcumuladoMarzo';
+import { BarChartSellInMarzo } from '../components/BarChartSellin/BarChartSellInMarzo';
+import { BarChartSellOutMarzo } from '../components/BarChartSellOut/BarChartSellOutMarzo';
 
 const dataCardSummary = [
 	{
@@ -133,17 +132,17 @@ export default function Home() {
 			</div>
 			<div className="grid grid-cols-1 xl:grid-cols-2 gap-4 xl:gap-10 mt-12 md:mb-10">
 				<div className="w-full h-full">
-					<BarChartSellInFebrero />
+					<BarChartSellInMarzo />
 				</div>
 				<div className="w-full h-full">
-					<BarChartSellOutFebrero />
+					<BarChartSellOutMarzo />
 				</div>
 			</div>
 
 			<div className="flex flex-col xl:flex-row flex-wrap gap-4 md:gap-5 mt-20 md:mb-10 w-full">
-				<SalesRadialChartFebrero />
-				<SalesRadialChartFebreroProyectado />
-				<SalesRadialChartAcumuladoFebrero />
+				<SalesRadialChartMarzo />
+				<SalesRadialChartMarzoProyectado />
+				<SalesRadialChartAcumuladoMarzo />
 				<Partformat />
 			</div>
 
@@ -152,7 +151,7 @@ export default function Home() {
 			</div>
 
 			<div className="grid md:gap-x-10 mt-12">
-				<VentasPorFormatoChartFebrero />
+				<VentasPorFormatoChartMarzo />
 			</div>
 		</div>
 	);

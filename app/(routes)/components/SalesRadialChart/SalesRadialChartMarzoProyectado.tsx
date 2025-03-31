@@ -9,15 +9,15 @@ const salesDataEnero = [
 	{
 		month: 'Marzo',
 		goal: 1574608,
-		billed: 1576848,
+		billed: 1576848 + 73440,
 		billedWithAppointment: 73440,
 		formattedGoal: '1,574,608 pzas',
-		formattedBilled: '1,576,848 pzas',
+		formattedBilled: '1,650,288 pzas',
 		formattedBilledWithAppointment: '1,650,288 pzas',
 	},
 ];
 
-export function SalesRadialChartFebreroProyectado() {
+export function SalesRadialChartMarzoProyectado() {
 	const [isMounted, setIsMounted] = useState(false);
 	const {
 		goal,
