@@ -67,8 +67,8 @@ const dataCardSummary = [
 	{
 		icon: Landmark,
 		total: '18.83%',
-		añoAnterior: '15.84%',
-		average: 19,
+		añoAnterior: '',
+		average: 0,
 		title: 'Utilidad Promedio',
 		tooltipText: 'Utilidad promedio de todos los formatos',
 	},
