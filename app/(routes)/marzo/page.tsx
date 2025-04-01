@@ -31,7 +31,6 @@ import { SalesRadialChartAcumuladoMarzo } from '../components/SalesRadialChart/S
 import { BarChartSellInMarzo } from '../components/BarChartSellin/BarChartSellInMarzo';
 import { BarChartSellOutMarzo } from '../components/BarChartSellOut/BarChartSellOutMarzo';
 import { PartChartFamilyMarzo } from '../components/PartChartFamily/PartChartFamilyMarzo';
-
 import { BarChartSalesMarzo } from '../components/BarChartSales/BarChartSalesMarzo';
 
 const dataCardSummary = [
@@ -149,17 +148,17 @@ export default function Home() {
 				<Partformat />
 			</div>
 
-			<div className="w-full h-full">
+			<div className="w-full h-full mt-5">
 				<div>
 					<BarChartSalesMarzo />
 				</div>
 			</div>
 
-			<div className="w-full h-full">
+			<div className="w-full h-full mt-5">
 				<PartChartFamilyMarzo />
 			</div>
 
-			<div className="w-full h-full">
+			<div className="w-full h-full mt-5">
 				<VentasPorFormatoChartMarzo />
 			</div>
 		</div>

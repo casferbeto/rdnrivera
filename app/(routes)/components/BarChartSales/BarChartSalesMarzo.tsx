@@ -14,17 +14,15 @@ import {
 import { useState } from 'react';
 
 const initialData = [
-	{ name: 'ELECTROLIT UVA 12/625 ML', value: 112474.0 },
-	{ name: 'ELECTROLIT MORA AZUL 12/625 ML', value: 101426.0 },
-	{ name: 'ELECTROLIT COCO 12/625 ML', value: 99076.0 },
-	{ name: 'ELECTROLIT FRESA 12/625 ML', value: 97015.0 },
-	{ name: 'ELECTROLIT MANZANA 12/625 ML', value: 85432.0 },
-	{ name: 'ELECTROLIT FRESA KIWI 12/625 ML', value: 74295.0 },
-	{ name: 'ELECTROLIT PONCHE DE FRUTAS 12/625ML', value: 60791.0 },
-	{ name: 'ELECTROLIT LIMA-LIMON 12/625 ML', value: 56818.0 },
-	{ name: 'ELECTROLIT NJA/MAND 12/625 ML', value: 56377.0 },
-	{ name: 'ELECTROLIT MORA AZUL 1/625 ML', value: 33678.0 },
-	{ name: 'ELECTROLIT UVA 1/625 ML', value: 33570.0 },
+	{ name: ' UVA 625 ML', value: 112474.0 },
+	{ name: ' MORA AZUL 625 ML', value: 101426.0 },
+	{ name: ' COCO 625 ML', value: 99076.0 },
+	{ name: ' FRESA 625 ML', value: 97015.0 },
+	{ name: ' MANZANA 625 ML', value: 85432.0 },
+	{ name: ' FRESA KIWI 625 ML', value: 74295.0 },
+	{ name: ' PONCHE DE FRUTAS 625ML', value: 60791.0 },
+	{ name: ' LIMA-LIMON 625 ML', value: 56818.0 },
+	{ name: ' NJA/MAND 625 ML', value: 56377.0 },
 ];
 
 const COLORS = [
@@ -66,11 +64,9 @@ export function BarChartSalesMarzo() {
 			<div className="mb-4">
 				<div className="flex justify-between items-start">
 					<div>
-						<h3 className="text-lg font-semibold">
-							Ventas por Producto - Marzo 2025
-						</h3>
+						<h3 className="text-lg font-semibold">Top ventas por Sku</h3>
 						<p className="text-sm text-muted-foreground">
-							Distribución de ventas en unidades por producto
+							Distribución en unidades por producto
 						</p>
 					</div>
 					<button
@@ -172,7 +168,7 @@ export function BarChartSalesMarzo() {
 						Total unidades: {new Intl.NumberFormat().format(totalValue)}
 					</p>
 					<p className="text-xs text-muted-foreground">
-						Cantidad total vendida en todas las presentaciones
+						Cantidad total vendida en el mes.
 					</p>
 				</div>
 			</div>
