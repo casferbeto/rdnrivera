@@ -124,12 +124,12 @@ export default function Home() {
 					),
 				)}
 			</div>
+			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-x-20"></div>
 			<div className="grid md:gap-x-10 mt-12">
 				<SalesDistributors />
-			</div>
-			<div className="grid md:gap-x-10 mt-12">
 				<Sellout />
 			</div>
+			<div className="grid md:gap-x-10 mt-12"></div>
 			<div className="flex-col md:gap-x-10 xl:flex xl:flex-row gap-y-4 md:gap-y-0 mt-12 md:mb-10 justify-center">
 				<Partformat />
 				<ListIntegrations />

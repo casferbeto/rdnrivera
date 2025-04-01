@@ -32,6 +32,8 @@ import { BarChartSellInMarzo } from '../components/BarChartSellin/BarChartSellIn
 import { BarChartSellOutMarzo } from '../components/BarChartSellOut/BarChartSellOutMarzo';
 import { PartChartFamilyMarzo } from '../components/PartChartFamily/PartChartFamilyMarzo';
 import { BarChartSalesMarzo } from '../components/BarChartSales/BarChartSalesMarzo';
+import { TableIntegrationsMarzo } from '../components/TableIntegrationsMarzo/TableIntegrationsMarzo';
+import { ListIntegrationsMarzo } from '../components/ListIntegrationsMarzo/ListIntegrationsMarzo';
 
 const dataCardSummary = [
 	{
@@ -159,7 +161,7 @@ export default function Home() {
 			</div>
 
 			<div className="w-full h-full mt-5">
-				<VentasPorFormatoChartMarzo />
+				<ListIntegrationsMarzo />
 			</div>
 		</div>
 	);
