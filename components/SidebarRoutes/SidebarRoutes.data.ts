@@ -35,4 +35,9 @@ export const dataGeneralSidebar = [
 		label: 'Abril 2025',
 		href: '/abril',
 	},
+	{
+		icon: PanelsTopLeft,
+		label: 'Datos',
+		href: '/datos',
+	},
 ];
