@@ -15,7 +15,7 @@ import {
 
 // Datos corregidos con estructura consistente
 const data = [
-	{ periodo: 'Marzo 2024', ventaPzas: 1487220 },
+	{ periodo: 'Marzo 2024', ventaPzas: 1544406 },
 	{ periodo: 'Marzo	 2025', ventaPzas: 1413024 },
 ];
 

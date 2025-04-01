@@ -16,7 +16,7 @@ import {
 // Datos corregidos con estructura consistente
 const data = [
 	{ periodo: 'Marzo 2024', ventaPzas: 1431852 },
-	{ periodo: 'Marzo 2025', ventaPzas: 997290 },
+	{ periodo: 'Marzo 2025', ventaPzas: 1245654 },
 ];
 
 const COLORS = ['#16c8c7', '#887cfd'];
