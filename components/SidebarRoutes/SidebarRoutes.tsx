@@ -9,90 +9,107 @@ import jsPDF from 'jspdf';
 
 export function SidebarRoutes() {
 	const handleDownloadPDF = async () => {
+		// Declarar originalStyles fuera del try para que sea accesible en finally
+		let originalStyles: { element: HTMLElement; display: string }[] = [];
+
 		try {
-			// 1. Almacenar estados originales
-			const originalScrollX = window.scrollX;
-			const originalScrollY = window.scrollY;
-			const originalOverflow = document.body.style.overflow;
-			const originalWidth = document.body.style.width;
+			// 1. Ocultar elementos no deseados
+			const elementsToHide = [
+				'header',
+				'aside',
+				'.no-print',
+				'.print-hidden',
+				'button',
+				'footer',
+			];
 
-			// 2. Aplicar estilos temporales
-			document.body.style.overflow = 'visible';
-			document.body.style.width = `${document.documentElement.scrollWidth}px`;
-
-			// 3. Optimizar elementos para impresión
-			document.querySelectorAll('canvas, table').forEach((el) => {
-				const element = el as HTMLElement;
-				element.style.boxShadow = 'none';
-				element.classList.add('print-margin');
+			elementsToHide.forEach((selector) => {
+				document.querySelectorAll(selector).forEach((el) => {
+					const element = el as HTMLElement;
+					originalStyles.push({
+						element,
+						display: element.style.display,
+					});
+					element.style.display = 'none';
+				});
 			});
 
-			// 4. Capturar contenido completo
-			const canvas = await html2canvas(document.documentElement, {
-				scale: 1,
-				scrollX: -originalScrollX,
-				scrollY: -originalScrollY,
-				windowWidth: document.documentElement.scrollWidth,
-				windowHeight: document.documentElement.scrollHeight,
+			// Resto del código sin cambios...
+			// 2. Aplicar estilos especiales para impresión
+			const printStyles = `
+        <style>
+          @media print {
+            body {
+              background: white !important;
+              padding: 20px !important;
+            }
+            .card {
+              break-inside: avoid;
+              page-break-inside: avoid;
+              margin-bottom: 15px !important;
+              box-shadow: none !important;
+              border: 1px solid #eee !important;
+            }
+            .grid {
+              display: block !important;
+            }
+            canvas {
+              max-width: 100% !important;
+              height: auto !important;
+            }
+          }
+        </style>
+      `;
+
+			document.head.insertAdjacentHTML('beforeend', printStyles);
+
+			// 3. Capturar solo el contenido principal
+			const content = document.getElementById('main-content') || document.body;
+
+			// 4. Configuración optimizada para html2canvas
+			const canvas = await html2canvas(content, {
+				scale: 1.5,
+				logging: false,
 				useCORS: true,
-				logging: true,
+				allowTaint: true,
+				backgroundColor: '#ffffff',
+				scrollX: 0,
+				scrollY: 0,
+				windowWidth: content.scrollWidth,
+				windowHeight: content.scrollHeight,
 			});
 
-			// 5. Restaurar estados originales
-			document.body.style.overflow = originalOverflow;
-			document.body.style.width = originalWidth;
-			window.scrollTo(originalScrollX, originalScrollY);
+			// 5. Crear PDF continuo
+			const imgData = canvas.toDataURL('image/png');
+			const pdf = new jsPDF({
+				orientation: canvas.width > canvas.height ? 'landscape' : 'portrait',
+				unit: 'mm',
+			});
 
-			// 6. Configurar PDF
-			const pdf = new jsPDF('p', 'mm', 'a4');
-			const pageWidth = pdf.internal.pageSize.getWidth();
-			const pageHeight = pdf.internal.pageSize.getHeight();
-
-			// 7. Calcular dimensiones
-			const imgWidth = pageWidth - 10;
+			const imgWidth = pdf.internal.pageSize.getWidth();
 			const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-			// 8. Dividir en páginas
-			let position = 0;
-			let remainingHeight = imgHeight;
-
-			while (remainingHeight > 0) {
-				pdf.addImage(
-					canvas,
-					'PNG',
-					5,
-					position + 5,
-					imgWidth,
-					imgHeight,
-					undefined,
-					'FAST',
-				);
-
-				remainingHeight -= pageHeight - 10;
-				position -= pageHeight - 10;
-
-				if (remainingHeight > 0) {
-					pdf.addPage('p', 'portrait');
-				}
-			}
-
-			// 9. Descargar
-			pdf.save(`reporte-completo-${new Date().toISOString().slice(0, 10)}.pdf`);
+			pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+			pdf.save(`reporte-${new Date().toISOString().slice(0, 10)}.pdf`);
 		} catch (error) {
-			console.error('Error:', error);
-			alert('Error al generar el PDF');
+			console.error('Error al generar PDF:', error);
+			alert('Error generando el PDF. Por favor intente nuevamente.');
 		} finally {
-			// 10. Limpiar estilos temporales
-			document.querySelectorAll('canvas, table').forEach((el) => {
-				const element = el as HTMLElement;
-				element.style.boxShadow = '';
-				element.classList.remove('print-margin');
+			// 6. Restaurar estilos originales
+			originalStyles.forEach(({ element, display }) => {
+				element.style.display = display;
 			});
+
+			// Eliminar estilos de impresión
+			const printStyle = document.querySelector('style[media="print"]');
+			if (printStyle) {
+				printStyle.remove();
+			}
 		}
 	};
 
 	return (
-		<div className="flex flex-col justify-between h-full  ">
+		<div className="flex flex-col justify-between h-full">
 			<div>
 				<div className="p-2 md:p-6">
 					<p className="text-slate-500 mb-2">GENERAL</p>
@@ -106,15 +123,15 @@ export function SidebarRoutes() {
 				<div className="text-center p-6">
 					<Button
 						variant="outline"
-						className="w-full bg-white hover:bg-gray-50 print:hidden"
+						className="w-full bg-white hover:bg-gray-50 print-hidden"
 						onClick={handleDownloadPDF}
 					>
 						Descargar PDF Completo
 					</Button>
 				</div>
 
-				<Separator className="bg-gray-200" />
-				<footer className="mt-3 p-3 text-center text-sm text-gray-500 print:hidden">
+				<Separator className="bg-gray-200 print-hidden" />
+				<footer className="mt-3 p-3 text-center text-sm text-gray-500 print-hidden">
 					© 2025 Todos los derechos reservados Alberto Castillo
 				</footer>
 			</div>

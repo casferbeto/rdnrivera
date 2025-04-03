@@ -6,12 +6,12 @@ export const dataPartformat = [
 	},
 	{
 		name: 'Reparto',
-		value: 55,
+		value: 60,
 		fill: '#00c49f',
 	},
 	{
 		name: 'Mostrador',
-		value: 26,
+		value: 22,
 		fill: '#ffbb28',
 	},
 ];

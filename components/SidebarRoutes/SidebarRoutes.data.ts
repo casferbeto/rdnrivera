@@ -12,11 +12,6 @@ import {
 export const dataGeneralSidebar = [
 	{
 		icon: PanelsTopLeft,
-		label: 'Dashboard',
-		href: '/',
-	},
-	{
-		icon: PanelsTopLeft,
 		label: 'Enero 2025',
 		href: '/enero',
 	},
@@ -34,10 +29,5 @@ export const dataGeneralSidebar = [
 		icon: PanelsTopLeft,
 		label: 'Abril 2025',
 		href: '/abril',
-	},
-	{
-		icon: PanelsTopLeft,
-		label: 'Datos',
-		href: '/datos',
 	},
 ];

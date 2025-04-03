@@ -15,15 +15,15 @@ import { useState } from 'react';
 
 const initialData = [
 	{ name: '625 ml', value: 94.63, fill: '#8884d8' },
-	{ name: 'MA 625 ml', value: 96.34, fill: '#16c8c7' },
+	{ name: 'AAN 625 ml', value: 96.34, fill: '#16c8c7' },
 	{ name: '355 ml', value: 1.62, fill: '#8884d8' },
-	{ name: 'MA 355 ml', value: 0, fill: '#16c8c7' },
+	{ name: 'AAN 355 ml', value: 0.0, fill: '#16c8c7' },
 	{ name: '1000 ml', value: 1.7, fill: '#8884d8' },
-	{ name: 'MA 1000 ml', value: 1.73, fill: '#16c8c7' },
-	{ name: 'Pediatrico', value: 1.12, fill: '#8884d8' },
-	{ name: 'MA Pediatrico', value: 0.54, fill: '#16c8c7' },
-	{ name: 'Zero', value: 0.93, fill: '#8884d8' },
-	{ name: 'MA Zero', value: 1.4, fill: '#16c8c7' },
+	{ name: 'ANN 1000 ml', value: 1.73, fill: '#16c8c7' },
+	{ name: 'PEDIATRICO', value: 1.12, fill: '#8884d8' },
+	{ name: 'AAN PEDITRICO', value: 0.54, fill: '#16c8c7' },
+	{ name: 'ZERO', value: 0.93, fill: '#8884d8' },
+	{ name: 'AAN ZERO', value: 1.4, fill: '#16c8c7' },
 ];
 
 export function PartChartFamilyMarzo() {

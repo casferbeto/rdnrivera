@@ -13,8 +13,8 @@ export const dataGraphics = [
 	},
 	{
 		year: 'Marzo',
-		añoActual: 1079952,
-		añoAnterior: 1487220,
+		añoActual: 1673388,
+		añoAnterior: 1544406,
 		año2023: 2000000,
 	},
 	{

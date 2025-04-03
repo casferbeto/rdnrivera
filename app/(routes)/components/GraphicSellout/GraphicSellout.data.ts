@@ -13,7 +13,7 @@ export const dataSoGraphics = [
 	},
 	{
 		year: 'Marzo',
-		añoActual: 747769,
+		añoActual: 1245654,
 		añoAnterior: 1431852,
 		año2023: 0,
 	},

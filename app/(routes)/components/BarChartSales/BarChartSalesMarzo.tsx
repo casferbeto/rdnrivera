@@ -11,18 +11,20 @@ import {
 	XAxis,
 	YAxis,
 } from 'recharts';
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 const initialData = [
-	{ name: ' UVA 625 ML', value: 112474.0 },
-	{ name: ' MORA AZUL 625 ML', value: 101426.0 },
-	{ name: ' COCO 625 ML', value: 99076.0 },
-	{ name: ' FRESA 625 ML', value: 97015.0 },
-	{ name: ' MANZANA 625 ML', value: 85432.0 },
-	{ name: ' FRESA KIWI 625 ML', value: 74295.0 },
-	{ name: ' PONCHE DE FRUTAS 625ML', value: 60791.0 },
-	{ name: ' LIMA-LIMON 625 ML', value: 56818.0 },
-	{ name: ' NJA/MAND 625 ML', value: 56377.0 },
+	{ name: ' UVA 625 ML', value: 144679.0 },
+	{ name: ' FRESA 625 ML', value: 134960.0 },
+	{ name: ' COCO 625 ML', value: 128901.0 },
+	{ name: ' MORA AZUL 625 ML', value: 120229.0 },
+	{ name: ' MANZANA 625 ML', value: 104674.0 },
+	{ name: ' FRESA KIWI 625 ML', value: 100237.0 },
+	{ name: ' PONCHE DE FRUTAS 625 ML', value: 81904.0 },
+	{ name: ' NJA/MAND 625 ML', value: 79974.0 },
+	{ name: ' LIMA-LIMON 625 ML', value: 74107.0 },
+	{ name: ' MORA AZUL 625 ML', value: 35030.0 },
+	{ name: ' UVA 625 ML', value: 35028.0 },
 ];
 
 const COLORS = [
@@ -41,22 +43,40 @@ const COLORS = [
 
 export function BarChartSalesMarzo() {
 	const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
-	const [chartData, setChartData] = useState(initialData);
+	const [chartData, setChartData] = useState<typeof initialData>([]);
+	const [isClient, setIsClient] = useState(false);
 
-	const sortData = () => {
+	// Mover sortData dentro de useCallback para estabilizar la referencia
+	const sortData = useCallback(() => {
 		const sorted = [...initialData].sort((a, b) => {
 			return sortOrder === 'desc' ? b.value - a.value : a.value - b.value;
 		});
 		setChartData(sorted);
-	};
+	}, [sortOrder]); // Ahora sortOrder es una dependencia explícita
+
+	useEffect(() => {
+		setIsClient(true);
+		sortData();
+	}, [sortData]); // Ahora incluye sortData como dependencia
 
 	const toggleSortOrder = () => {
 		const newOrder = sortOrder === 'desc' ? 'asc' : 'desc';
 		setSortOrder(newOrder);
-		sortData();
+		// No necesitamos llamar a sortData aquí porque el cambio de sortOrder
+		// activará el useCallback que actualizará los datos
 	};
 
 	const totalValue = chartData.reduce((acc, curr) => acc + curr.value, 0);
+
+	if (!isClient) {
+		return (
+			<div className="h-full p-6 bg-background rounded-lg border shadow-sm">
+				<div className="h-[300px] flex items-center justify-center">
+					<p>Cargando gráfico...</p>
+				</div>
+			</div>
+		);
+	}
 
 	return (
 		<div className="h-full p-6 bg-background rounded-lg border shadow-sm hover:shadow-lg transition">

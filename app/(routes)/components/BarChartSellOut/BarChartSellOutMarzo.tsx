@@ -32,7 +32,7 @@ export function BarChartSellOutMarzo() {
 				</div>
 
 				<div className="flex items-center gap-2 px-3 text-md bg-blue-500 text-white rounded-xl w-fit">
-					-30%
+					-13%
 					<TrendingDown strokeWidth={1} className="h-4 w-4" />
 				</div>
 			</div>

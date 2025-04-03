@@ -9,10 +9,10 @@ const salesDataEnero = [
 	{
 		month: 'Marzo',
 		goal: 1574608,
-		billed: 1576848 + 73440,
-		billedWithAppointment: 73440,
+		billed: 1650288,
+		billedWithAppointment: 0,
 		formattedGoal: '1,574,608 pzas',
-		formattedBilled: '1,650,288 pzas',
+		formattedBilled: '1,650,288  pzas',
 		formattedBilledWithAppointment: '1,650,288 pzas',
 	},
 ];

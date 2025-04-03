@@ -9,10 +9,10 @@ const salesDataEnero = [
 	{
 		month: 'Acumualdo',
 		goal: 3396610,
-		billed: 3058622,
-		billedWithAppointment: 73440,
+		billed: 3132062,
+		billedWithAppointment: 0,
 		formattedGoal: '3,396,610 pzas',
-		formattedBilled: '3,058,622 pzas',
+		formattedBilled: '3,132,062 pzas',
 		formattedBilledWithAppointment: '3,132,062 pzas',
 	},
 ];

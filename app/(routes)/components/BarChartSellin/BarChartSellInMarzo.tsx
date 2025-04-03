@@ -16,7 +16,7 @@ import {
 // Datos corregidos con estructura consistente
 const data = [
 	{ periodo: 'Marzo 2024', ventaPzas: 1544406 },
-	{ periodo: 'Marzo	 2025', ventaPzas: 1413024 },
+	{ periodo: 'Marzo	 2025', ventaPzas: 1673388 },
 ];
 
 const COLORS = ['#16c8c7', '#887cfd'];
@@ -32,8 +32,8 @@ export function BarChartSellInMarzo() {
 				</div>
 
 				<div className="flex items-center gap-2 px-3 text-md bg-blue-500 text-white rounded-xl w-fit">
-					-15%
-					<TrendingDown strokeWidth={1} className="h-4 w-4" />
+					8%
+					<TrendingUp strokeWidth={1} className="h-4 w-4" />
 				</div>
 			</div>
 

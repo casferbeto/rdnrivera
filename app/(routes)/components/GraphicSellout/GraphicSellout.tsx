@@ -14,10 +14,7 @@ export function GraphicSellout() {
 	return (
 		<div className="mt-5">
 			<div className="flex gap-x-5 mb-5">
-				<div className="flex items-center gap-2 px-3 text-md bg-[#16c8c7] text-white rounded-xl w-fit">
-					-16%
-					<TrendingDown strokeWidth={1} className="h-4 w-4" />
-				</div>
+				<div className="flex items-center gap-2 px-3 text-md bg-[#16c8c7] text-white rounded-xl w-fit"></div>
 			</div>
 			<div className="h-[350px]">
 				<ResponsiveContainer width="100%" height="100%">
